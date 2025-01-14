@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+
+}
+
+input {
+    margin: 2rem;
+    border-radius: 10px;
+    width: fit-content;
+    background-color: rgb(190, 190, 190);
+    justify-content: end;
+}
+
+.wrapper {
+    margin: 160px;
+    background-color: rgb(62, 59, 59);
+    border-radius: 10px;
+    max-width: 600px;
+}
+
+#display {
+    background-color: rgb(241, 239, 239);
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 2rem;
+    height: 1.5rem;
+    width: 11rem;
+    justify-self: center;
+    text-align: end;
+}
+
+.inner {
+    padding: 1rem;
+    align-self: center;
+}
+
+.sect1 {
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sect2 {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    background-color: rgb(70, 75, 77);
+    color: white;
+    width: 2rem;
+    height: 2rem;
+    margin: 0.1rem;
+}
+
+#buttons {
+    display: flex;
+    /* justify-content: space-evenly; */
+    justify-content: center;
+}
+
+#calculate {
+    background-color: brown;
+}
+
+.sect2 button {
+    background-color: rgb(101, 202, 230);
+    border-color: rgb(101, 202, 230);
+
+}
+
+
+@media only screen and (min-width: 680px) {
+
+    button {
+        background-color: rgb(70, 75, 77);
+        color: white;
+        width: 5rem;
+        height: 5rem;
+        margin: 1rem;
+        font-size: 3rem;
+    }
+
+    #display {
+        background-color: rgb(241, 239, 239);
+        border-radius: 10px;
+        padding: 1rem;
+        margin: 2rem;
+        height: 5rem;
+        width: 30rem;
+        justify-self: center;
+        text-align: end;
+        font-size: 3rem;
+
+    }
+}

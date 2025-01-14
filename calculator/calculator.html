@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="./calculator.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        
+        <div class="inner">
+            <p id="display">0</p>
+
+            <div class="sect1" style="padding-left: 2rem;">
+                <button onclick= "collect('C')">C</button>
+            </div>
+            <div id="buttons">
+
+                <div class="sect1">
+                    <button onclick= "collect(9)">9</button>
+                    <button onclick= "collect(8)">8</button>
+                    <button onclick= "collect(7)">7</button>
+                    <button onclick= "collect(6)">6</button>
+                    <button onclick= "collect(5)">5</button>
+                    <button onclick= "collect(4)">4</button>
+                    <button onclick= "collect(3)">3</button>
+                    <button onclick= "collect(2)">2</button>
+                    <button onclick= "collect(1)">1</button>
+                    <button onclick= "collect(0)">0</button>
+                    <button onclick= "collect(`.`)">.</button>
+                    <button id="calculate" onclick= "collect(`=`)">=</button>
+                </div>
+                <div class="sect2">
+                    <button class="symbols" onclick= "collect('/')">/</button>
+                    <button class="symbols" onclick= "collect('*')">x</button>
+                    <button class="symbols" onclick= "collect('-')">-</button>
+                    <button class="symbols" onclick= "collect('+')">+</button>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <script src="./calculator.js"></script>
+</body>
+
+</html>
