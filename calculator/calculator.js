@@ -1,9 +1,11 @@
 let numberArray = [];
 let symbolArray = [];
-
+let count = 0;
 const collect = (value) => {
     const display = document.getElementById('display');
 
+    if(display.innerText.length > 10){display.innerHTML==""}
+    if(display.innerHTML=="NaN"){display.innerHTML=="Logic Error"}
     if (value === "C") {
         numberArray = [];
         symbolArray = [];
@@ -11,9 +13,23 @@ const collect = (value) => {
         return;
     }
 
+    if (value === "delete" && count > 0) {
+        value = ''
+        let newString = ""
+        let displayArray = display.innerHTML.split("")
+        displayArray.pop()
+        for (let number of displayArray) {
+            newString += number
+        }
+        display.innerHTML = `${newString}`
+    }
+
     if (value !== "=") {
+
         if (display.innerHTML === '0') {
             display.innerHTML = "";
+        } else if (count === 0 && value === 0) {
+            display.innerHTML = "0";
         }
 
         if (value === "+" || value === "-" || value === "*" || value === "/") {
@@ -23,9 +39,8 @@ const collect = (value) => {
         } else {
             display.innerHTML += value.toString();
         }
-    }
-
-    if (value === "=") {
+        count++;
+    }else{
         numberArray.push(parseFloat(display.innerHTML));
         let result = numberArray[0];
 

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-List</title>
+    <link rel="stylesheet" href="to-do.css">
+    <script src="./to-do.js" defer></script>
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <nav>
+            <h1 style="color: aliceblue; font-size: 2rem;" >To-Do list</h1>
+            <form action=""></form>
+            <input type="search" placeholder="Search Tasks" id="search">
+        </nav>
+        <div>
+            
+            <div class="add-task">
+                <input type="text" id="task_name" placeholder="Input Task to Complete">
+                <input type="text" id="task_description" placeholder="give details..">
+                <button onclick="addTask()">Add Task</button>
+            </div>
+
+            <div class="p">
+                <p id="error" style="text-align: center;"></p>
+            </div>
+
+        </div>
+        
+        <div class="task-list">
+            <div class="task">
+                    <h1 style="color: rgb(173, 62, 59); font-size: 2rem; padding-left: 2rem;">TASKS</h1>
+ 
+                <div id="tasks">
+                    
+                </div>
+                <p style="text-align: center; font-size: 2rem;" id="prompted"></p>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

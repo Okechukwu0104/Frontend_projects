@@ -1,0 +1,101 @@
+* {
+    box-sizing: border-box;
+    background-color: rgb(64, 64, 64);
+    color: rgb(218, 152, 65);
+}
+
+nav {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+.h1 {
+    font-size: 2.5rem;
+    text-align: center;
+}
+p{
+    font-size: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.p{
+    padding-left: 3px; 
+    white-space: initial; 
+    width:20rem; 
+    font-weight: bolder;
+    font-size: 2rem;
+}
+
+h2{
+    font-size: 1.8rem;
+    padding-right: 25px;
+    align-self: center;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+}
+
+input:hover {
+    background-color: rgb(105, 69, 20);
+}
+
+input{
+    height: 4rem;
+    width: 28rem;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    padding: 1rem;
+    border-color:  rgb(218, 152, 65);
+}
+input, input::placeholder, input::after{
+    color:  rgb(218, 152, 65);
+}
+
+#sign-up {
+    justify-content: center;
+}
+
+.menuItems {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+
+}
+button{
+    background-color:  rgb(218, 152, 65);
+    color: rgb(76, 73, 73);
+    width: 8rem;
+    height: 4rem;
+    border-radius: 30px;
+    align-self: center;
+    font-size: 1.3rem;
+    font-weight: bolder;
+}
+img{
+    width: 25rem;
+    height: 19rem fit-content;
+    border-radius: 20px; 
+    
+}
+
+
+img:hover{
+transition: 0.3s;
+transform: scale(1.04);
+}
+
+#videos{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.vid{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
