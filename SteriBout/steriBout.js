@@ -1,53 +1,48 @@
 let products_url = "https://fakestoreapi.com/products";
 
 const getProducts = async (url) => {
-    fetch(url)
-        .then(response => response.json())
-        .then(data => { showProducts(data) })
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        showProducts(data);
+    } catch (error) {
+        console.error("Error fetching data:", error);
+    }
 }
+
 
 
 const showProducts = (products) => {
     const productTray = document.getElementById("all-items");
+    productTray.innerHTML = "";
     products.forEach((product) => {
         const { image, title, description, price, rating, category } = product;
         let newElement = `
-        <div class="pic">
-                <img src="${image}" alt="Movie poster">
-                <p id="title" >${title}</p>
-                <p class="description1">${reduceOverview(description)}</p>
-                <p class="price">Price: $${price}</p>
-                <p class="description2"> Quantity: ${rating.count} piece(s)</p>
-                <p class="category">${category}</p>
-
+        <div class="pic vid">
+            <img src="${image}" alt="Product image">
+            <p id="title">${title}</p>
+            <p class="description1">${reduceOverview(description)}</p>
+            <p class="price">Price: $${price}</p>
+            <p class="description2"> Quantity: ${rating.count} piece(s)</p>
+            <p class="category">${category}</p>
         </div>
         `;
         productTray.innerHTML += newElement;
     });
 }
 
-const reduceOverview = (overView) => {
-    if (overView.length > 249) {
-        return overView.substring(0, 200) + "...";
-    }
-    return overView;
+const reduceOverview = (overview) => {
+    return overview.substring(0, 200) + "...";
 }
 
 const searchInput = async () => {
     try {
         let search = document.getElementById("search").value.toUpperCase();
-        const itemList = document.querySelectorAll(".vid")
-        console.log(search)
+        const itemList = document.querySelectorAll(".vid");
         itemList.forEach((item) => {
-            let title = item.querySelector("#title").innerHTML.toUpperCase()
-
-            if (title.includes(search)) {
-                item.style.display = "flex";
-            } else {
-                item.style.display = "none";
-            }
-        })
-
+            let title = item.querySelector("#title").innerHTML.toUpperCase();
+            item.style.display = title.includes(search) ? "flex" : "none";
+        });
     } catch (error) {
         alert(error);
     }
@@ -55,60 +50,43 @@ const searchInput = async () => {
 
 const searchPerCategory = (option) => {
     try {
-        const itemList = document.querySelectorAll(".vid")
+        const itemList = document.querySelectorAll(".vid");
         itemList.forEach((item) => {
-            let category = item.querySelector(".category").innerHTML.toUpperCase()
-
-            if (option == category) {
-                item.style.display = "flex";
-            } else {
-                item.style.display = "none";
-            }
-        })
-
+            let category = item.querySelector(".category").innerHTML.toUpperCase();
+            item.style.display = option === category ? "flex" : "none";
+        });
     } catch (error) {
         alert(error);
     }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    fetch('https://fakestoreapi.com/products')
+    getProducts(products_url);
+    fetch(products_url)
         .then(response => response.json())
         .then(data => {
-            const categories = [...new Set(data.map(product => product.category))];
+            const categories = [...new Set(data.map(product => product.category.toUpperCase()))];
             const dropdown = document.getElementById("categoryDropdown");
-            let count = 0
+            let count = 0;
             categories.forEach(category => {
                 const option = document.createElement("option");
-                option.id = `category-${count}`
-                // option.onchange =()=> searchPerCategory(this); 
-
+                option.id = `category-${count}`;
                 option.value = category;
                 option.textContent = category;
                 dropdown.appendChild(option);
-                count++
-                countMonitor(count)
+                count++;
+                countMonitor(count);
             });
-
         })
-        .catch(error => console.error("Error fetching data:", error));
+        .catch(error => console.error("Error fetching categories:", error));
 });
 
 const countMonitor = (count) => {
     const alat = document.getElementById("error");
-    if (count > 0) {
-        alat.style.display = "none";
-    } else {
-        alat.style.display = "flex";
-    } 
+    alat.style.display = count > 0 ? "none" : "flex";
 }
 
 document.getElementById("categoryDropdown").addEventListener("change", (event) => {
-    let option = event.target.value.toUpperCase()
-    searchPerCategory(option)
-})
-
-
-getProducts(products_url)
-
-
+    let option = event.target.value.toUpperCase();
+    searchPerCategory(option);
+});

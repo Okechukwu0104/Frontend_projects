@@ -66,6 +66,7 @@ input, input::placeholder, input::after{
     width: 500px;
 
 }
+
 button{
     background-color:  rgb(218, 152, 65);
     color: rgb(76, 73, 73);

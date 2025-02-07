@@ -12,7 +12,7 @@
 }
 .description1,.description2,.price,#title{
     width:20rem;
-    background-color: rgb(207, 202, 193);
+    background-color: rgb(255, 253, 250);
     color: rgb(128, 21, 21);
 
 }
@@ -22,6 +22,8 @@ nav{
     margin: 2rem;
     background-color: grey;
     padding: 1rem;
+    border-radius: 0px 20px 0px 20px;
+
 }
 .nav{
     
@@ -35,8 +37,6 @@ button, button:hover{
     border-radius: 10px;
     margin-left: 1rem;
     cursor: pointer;
-
-
 }
 #search{
     height: 3rem;
@@ -46,6 +46,8 @@ button, button:hover{
     margin: 0;
     border-radius: 10px;
     color: rgb(207, 202, 193);
+    border-radius: 0px 20px 0px 20px;
+
 }
 .menuItems{
     display: flex;
@@ -55,6 +57,16 @@ button, button:hover{
     background-color: grey;
     
 }
+
+#menuItems{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    background-color: grey;
+    
+}
+
 .h1{
     padding: 1rem;
 }
@@ -79,11 +91,13 @@ button, button:hover{
     padding: 1rem;
     color: rgb(128, 21, 21);
     flex-wrap: wrap;
-    background-color: rgb(207, 202, 193);
+    background-color: rgb(255, 253, 250);
     border-radius: 10px;
 }
 svg{
     margin-right: 1rem;
+    color: rgb(128, 21, 21);
+
 }
 svg:hover{
     cursor: pointer;
@@ -97,7 +111,7 @@ img{
     width: 10rem;
     height: 8rem fit-content;
     border-radius: 10px;
-    padding: 0.1rem; 
+    /* padding: 0.1rem;  */
 }
 
 #error{
@@ -114,7 +128,7 @@ background-color: rgb(128, 21, 21); ;
 
 #all-items {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
 
 }
